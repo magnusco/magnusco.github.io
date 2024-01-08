@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown to June 7, 2025</title>
+    <title>Countdown to June 7, 2025, 13:00</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 20px;
+            margin: 50px;
         }
         #countdown {
-            font-size: 24px;
+            font-size: 22px;
             margin-top: 20px;
         }
     </style>
@@ -21,28 +21,40 @@
     <div id="countdown"></div>
 
     <script>
-        // Function to calculate the number of days until June 7, 2025
-        function calculateDaysUntilJune7() {
+        function calculateTimeUntilJune7() {
             // Current date
             var currentDate = new Date();
 
-            // Target date (June 7, 2025)
-            var targetDate = new Date("2025-06-07");
+            // Target date (June 7, 2025, 13:00)
+            var targetDate = new Date("2025-06-07T13:00:00");
 
             // Calculate the difference in milliseconds
             var differenceMs = targetDate - currentDate;
 
-            // Calculate the difference in days
-            var differenceDays = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((differenceMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((differenceMs % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((differenceMs % (1000 * 60)) / 1000);
 
-            return differenceDays;
+            return {
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            };
         }
 
-        // Function to update the countdown element
         function updateCountdown() {
-            var daysUntilJune7 = calculateDaysUntilJune7();
+            var timeUntilJune7 = calculateTimeUntilJune7();
             var countdownElement = document.getElementById("countdown");
-            countdownElement.innerHTML = "Det er " + daysUntilJune7 + " dager igjen.";
+
+            // Display the countdown
+            countdownElement.innerHTML = "Det er " +
+                timeUntilJune7.days + " dager, " +
+                timeUntilJune7.hours + " timer, " +
+                timeUntilJune7.minutes + " minutter og " +
+                timeUntilJune7.seconds + " sekunder igjen!";
         }
 
         // Initial update
