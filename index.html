@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to June 7, 2025</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #countdown {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="countdown"></div>
+
+    <script>
+        // Function to calculate the number of days until June 7, 2025
+        function calculateDaysUntilJune7() {
+            // Current date
+            var currentDate = new Date();
+
+            // Target date (June 7, 2025)
+            var targetDate = new Date("2025-06-07");
+
+            // Calculate the difference in milliseconds
+            var differenceMs = targetDate - currentDate;
+
+            // Calculate the difference in days
+            var differenceDays = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
+
+            return differenceDays;
+        }
+
+        // Function to update the countdown element
+        function updateCountdown() {
+            var daysUntilJune7 = calculateDaysUntilJune7();
+            var countdownElement = document.getElementById("countdown");
+            countdownElement.innerHTML = "Det er " + daysUntilJune7 + " dager igjen.";
+        }
+
+        // Initial update
+        updateCountdown();
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
