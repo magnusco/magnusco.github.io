@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to June 7, 2025, 13:00</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <title>Velkommen</title>
     <style>
         body {
             font-family: 'Great Vibes', cursive;
             text-align: center;
             margin: 0;
             padding: 0;
-            background: url('wedding_background.jpg') no-repeat center center fixed; /* Replace 'wedding_background.jpg' with your background image path */
-            background-size: contain; /* You can adjust this value for smaller background image */
-            color: #333; /* Text color */
+            background: url('wedding_background.jpg') no-repeat center center fixed;
+            background-size: contain;
+            color: #333;
         }
         #countdown-container {
             font-size: 28px;
             margin-top: 200px;
-            background-color: transparent; /* Transparent background */
+            background-color: transparent;
             padding: 10px;
             border-radius: 10px;
+        }
+    </style>
+    <style>
+        @media only screen and (max-width: 600px) {
+            body {
+                background-size: cover;
+            }
+            #countdown-container {
+                font-size: 22px;
+                margin-top: 150px;
+                background-size: cover;
+            }
         }
     </style>
 </head>
@@ -31,7 +43,6 @@
         <div id="countdown"></div>
     </div>
 
-    
     <script>
         function calculateTimeUntilJune7() {
             // Current date
@@ -61,11 +72,11 @@
             var timeUntilJune7 = calculateTimeUntilJune7();
             var countdownElement = document.getElementById("countdown");
 
-            // Display the countdown
+            // Display the countdown with line breaks
             countdownElement.innerHTML = "Det er " +
                 timeUntilJune7.days + " dager, " +
-                timeUntilJune7.hours + " timer, " +
-                timeUntilJune7.minutes + " minutter og " +
+                timeUntilJune7.hours + " timer," +
+                timeUntilJune7.minutes + " minutter og "  +
                 timeUntilJune7.seconds + " sekunder <br> til vi gifter oss!";
         }
 
