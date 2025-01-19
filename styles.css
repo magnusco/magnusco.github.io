@@ -23,7 +23,7 @@ body {
 hr {
     border: none;
     border-top: 1px solid #ddd;
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 h1 {
@@ -60,3 +60,7 @@ p {
         font-size: 1em;
     }
 }
+
+.bottom-margin {
+    margin-bottom: 1em;
+ }
